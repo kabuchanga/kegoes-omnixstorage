@@ -158,3 +158,122 @@ For better performance with large files:
 - [ ] Monitor logs regularly
 - [ ] Set up health check monitoring
 - [ ] Plan cluster expansion (add more nodes)
+
+---
+
+## SSL/TLS Certificate Issues (net::ERR_CERT_AUTHORITY_INVALID)
+
+If you're getting "Your connection isn't private" errors when accessing a domain like `demo.omnixstorage.kegeosapps.com`:
+
+### Root Cause
+Coolify's reverse proxy (or your SSL termination point) is serving an invalid, self-signed, or mismatched certificate.
+
+### Solution for Coolify Deployments
+
+**Step 1: Verify Services are Running**
+```bash
+# SSH into your Coolify server and check container status
+docker ps | grep omnix
+
+# All three should show as running:
+# - omnix-etcd
+# - omnix-node1  
+# - omnix-console
+```
+
+**Step 2: Test Backend Connectivity**
+```bash
+# From your Coolify server, test the backend is responding
+curl -v http://localhost:9000/health
+curl -v http://localhost:3001/
+
+# Both should return 200 responses
+```
+
+**Step 3: Check Coolify Certificate Settings**
+In your Coolify Dashboard:
+1. Navigate to the application settings
+2. Go to **SSL** section
+3. Verify:
+   - Certificate is issued for `demo.omnixstorage.kegeosapps.com`
+   - Certificate is not expired
+   - Auto-renewal is enabled (for Let's Encrypt)
+4. Try **Regenerate Certificate** if issues persist
+5. Restart the application containers
+
+**Step 4: Configure Console API URL**
+In Coolify environment variables, set:
+```
+OMNIX_CONSOLE_API_URL=https://demo.omnixstorage.kegeosapps.com
+```
+
+This tells the console (running in browser) to use HTTPS when connecting to the backend API.
+
+**Step 5: Coolify Network Configuration**
+Ensure Coolify is configured to:
+- Terminate SSL at the reverse proxy
+- Forward HTTP traffic internally to port 9000 (omnix-node1)
+- Forward HTTP traffic internally to port 3001 (console)
+
+### For Self-Hosted without Coolify
+
+If you're using a different reverse proxy (nginx, Caddy, etc.):
+
+**Nginx Configuration Example:**
+```nginx
+# HTTP redirect
+server {
+    listen 80;
+    server_name demo.omnixstorage.kegeosapps.com;
+    return 301 https://$server_name$request_uri;
+}
+
+# HTTPS configuration
+server {
+    listen 443 ssl http2;
+    server_name demo.omnixstorage.kegeosapps.com;
+    
+    ssl_certificate /path/to/cert.pem;
+    ssl_certificate_key /path/to/key.pem;
+    
+    # Storage API (port 9000)
+    location / {
+        proxy_pass http://omnix-node1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+    
+    # Console (port 3001)  
+    location /console {
+        proxy_pass http://omnix-console:80/;
+        proxy_set_header Host $host;
+    }
+}
+```
+
+**Caddy Configuration Example:**
+```caddyfile
+demo.omnixstorage.kegeosapps.com {
+    encode gzip
+    
+    # Storage API
+    route / {
+        reverse_proxy omnix-node1:5000
+    }
+}
+```
+
+### Verify Certificate is Valid
+
+```bash
+# Check certificate details
+openssl x509 -in /path/to/cert.pem -text -noout
+
+# Should show:
+# - Subject: CN=demo.omnixstorage.kegeosapps.com
+# - Not Before: (current date)
+# - Not After: (future date)
+# - Public-Key Bit Length: >= 2048
+```
