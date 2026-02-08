@@ -39,9 +39,15 @@ services:
     container_name: omnix-node1
     hostname: omnix-node1
     labels:
-      # Labels for Coolify deployment hints
-      coolify.public: "true"
-      coolify.port: "5000"
+      # Traefik configuration for Coolify reverse proxy routing
+      - "traefik.enable=true"
+      # Service definition
+      - "traefik.http.services.omnixstorage-api.loadbalancer.server.port=5000"
+      # Router for port 9000 (public API endpoint)
+      - "traefik.http.routers.omnixstorage-api.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`) && PathPrefix(`/health`, `/s3`, `/api`, `/bucket`)"
+      - "traefik.http.routers.omnixstorage-api.entrypoints=websecure"
+      - "traefik.http.routers.omnixstorage-api.tls=true"
+      - "traefik.http.routers.omnixstorage-api.priority=10"
     environment:
       - NODE_NAME=node1
       - IS_SEED_NODE=true
@@ -95,9 +101,15 @@ services:
     pull_policy: always
     container_name: omnix-console
     labels:
-      # Labels for Coolify deployment hints
-      coolify.public: "true"
-      coolify.port: "80"
+      # Traefik configuration for Coolify reverse proxy routing
+      - "traefik.enable=true"
+      # Service definition
+      - "traefik.http.services.omnixstorage-console.loadbalancer.server.port=80"
+      # Router for console (port 3001, default route)
+      - "traefik.http.routers.omnixstorage-console.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`)"
+      - "traefik.http.routers.omnixstorage-console.entrypoints=websecure"
+      - "traefik.http.routers.omnixstorage-console.tls=true"
+      - "traefik.http.routers.omnixstorage-console.priority=1"
     environment:
       # When behind Coolify's reverse proxy with SSL termination:
       # - Coolify terminates HTTPS and forwards HTTP internally
