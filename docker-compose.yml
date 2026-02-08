@@ -1,4 +1,4 @@
-version: '3.8'
+version: '3.8'  # Note: Coolify compatible. Version attribute is legacy in modern Docker but kept for tool compatibility.
 
 services:
   etcd:
@@ -91,6 +91,10 @@ services:
     pull_policy: always
     container_name: omnix-console
     environment:
+      # When behind Coolify's reverse proxy with SSL termination:
+      # - Coolify terminates HTTPS and forwards HTTP internally
+      # - Set VITE_API_URL to the public HTTPS domain
+      # - Coolify automatically manages Let's Encrypt SSL renewal
       - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-http://localhost:9000}
     ports:
       - "3001:80"
