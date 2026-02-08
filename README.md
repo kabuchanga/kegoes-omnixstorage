@@ -2,6 +2,25 @@
 
 Welcome to **OmnixStorage**, a high-performance, distributed object storage system built for the modern cloud-native era. OmnixStorage delivers S3-compatible APIs with advanced features like automatic data replication, erasure coding, built-in vector search capabilities, and comprehensive multi-tenant support—all in a lightweight, containerized package ready for immediate deployment.
 
+---
+
+## 🚀 Deploy with Coolify (Recommended)
+
+**One-click deployment to Coolify with auto-scaling, SSL, and monitoring:**
+
+1. **Connect your Coolify instance**
+2. **Deploy from this GitHub repo** (`main` branch)
+3. **Follow** [`COOLIFY_DEPLOYMENT_CHECKLIST.md`](COOLIFY_DEPLOYMENT_CHECKLIST.md)
+
+⚠️ **Important:** Make sure to expose **BOTH ports 3001 (console) and 9000 (API)** in Coolify settings!
+
+See guides:
+- 📋 [`COOLIFY_DEPLOYMENT_CHECKLIST.md`](COOLIFY_DEPLOYMENT_CHECKLIST.md) - Complete step-by-step checklist
+- 🔧 [`COOLIFY_REVERSE_PROXY_FIX.md`](COOLIFY_REVERSE_PROXY_FIX.md) - Port routing configuration
+- 🐛 [`COOLIFY_NO_SERVER_FIX.md`](COOLIFY_NO_SERVER_FIX.md) - Troubleshooting guide
+
+---
+
 ## What is OmnixStorage?
 
 OmnixStorage is a production-ready object storage platform that combines the simplicity of S3 with the power of distributed systems. Built with .NET and optimized for Linux environments using modern I/O techniques (io_uring), OmnixStorage provides:
