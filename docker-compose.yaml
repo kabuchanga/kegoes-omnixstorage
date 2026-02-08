@@ -31,13 +31,17 @@ services:
       interval: 15s
       timeout: 10s
       retries: 5
-      start_period: 30s
+      start_period: 45s
 
   omnix-node1:
     image: kegeossolutions/omnixstorage:${OMNIX_TAG:-omnixstorage}
     pull_policy: always
     container_name: omnix-node1
     hostname: omnix-node1
+    labels:
+      # Labels for Coolify deployment hints
+      coolify.public: "true"
+      coolify.port: "5000"
     environment:
       - NODE_NAME=node1
       - IS_SEED_NODE=true
@@ -82,14 +86,18 @@ services:
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 15s
-      timeout: 5s
-      retries: 3
-      start_period: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
   console:
     image: kegeossolutions/omnix-console:${OMNIX_TAG:-omnixstorage}
     pull_policy: always
     container_name: omnix-console
+    labels:
+      # Labels for Coolify deployment hints
+      coolify.public: "true"
+      coolify.port: "80"
     environment:
       # When behind Coolify's reverse proxy with SSL termination:
       # - Coolify terminates HTTPS and forwards HTTP internally
