@@ -156,6 +156,19 @@ services:
                 proxy_set_header X-Forwarded-Proto $$scheme;
             }
             
+            # Frontend static assets - serve from nginx
+            location /icons/ {
+                try_files $$uri =404;
+            }
+            
+            location /diagrams/ {
+                try_files $$uri =404;
+            }
+            
+            location /assets/ {
+                try_files $$uri =404;
+            }
+            
             # S3 bucket paths (e.g., /mybucket/file.txt)
             location ~ ^/[^/]+/.*$$ {
                 proxy_pass http://omnix-node1:5000;
