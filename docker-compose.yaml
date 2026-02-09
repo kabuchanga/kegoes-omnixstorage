@@ -38,14 +38,6 @@ services:
     pull_policy: always
     container_name: omnix-node1
     hostname: omnix-node1
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.omnixstorage-api.loadbalancer.server.port=5000"
-      - "traefik.http.routers.omnixstorage-api.rule=Host(`demo.omnixstorage.kegeosapps.com`) && (PathPrefix(`/api`) || PathPrefix(`/s3`) || PathPrefix(`/bucket`) || PathPrefix(`/health`))"
-      - "traefik.http.routers.omnixstorage-api.entrypoints=websecure"
-      - "traefik.http.routers.omnixstorage-api.tls=true"
-      - "traefik.http.routers.omnixstorage-api.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.omnixstorage-api.priority=100"
     environment:
       - NODE_NAME=node1
       - IS_SEED_NODE=true
@@ -98,18 +90,12 @@ services:
     image: kegeossolutions/omnix-console:${OMNIX_TAG:-omnixstorage}
     pull_policy: always
     container_name: omnix-console
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.omnix-console.loadbalancer.server.port=80"
-      - "traefik.http.routers.omnix-console.rule=Host(`demo.omnixstorage.kegeosapps.com`)"
-      - "traefik.http.routers.omnix-console.entrypoints=websecure"
-      - "traefik.http.routers.omnix-console.tls=true"
-      - "traefik.http.routers.omnix-console.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.omnix-console.priority=1"
     environment:
       - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-https://demo.omnixstorage.kegeosapps.com}
     ports:
       - "3001:80"
+    volumes:
+      - ./nginx-api-proxy.conf:/etc/nginx/conf.d/api-proxy.conf:ro
     networks:
       - omnix-network
     restart: unless-stopped
