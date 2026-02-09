@@ -82,6 +82,7 @@ services:
       - omnix-keys:/data/keys
     networks:
       - omnix-network
+      - coolify
     restart: unless-stopped
     depends_on:
       etcd:
@@ -132,6 +133,7 @@ services:
       - "3001:80"
     networks:
       - omnix-network
+      - coolify
     restart: unless-stopped
     depends_on:
       - omnix-node1
@@ -142,6 +144,8 @@ networks:
     ipam:
       config:
         - subnet: 172.21.0.0/16
+  coolify:
+    external: true
 
 volumes:
   etcd-data:
