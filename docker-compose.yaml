@@ -75,10 +75,10 @@ services:
       resources:
         limits:
           memory: 16G
-          cpus: '8'
+          cpus: '6'
         reservations:
           memory: 8G
-          cpus: '4'
+          cpus: '3'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 15s
@@ -91,7 +91,7 @@ services:
     pull_policy: always
     container_name: omnix-console
     environment:
-      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-http://localhost:9000}
+      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-http://omnix-node1:5000}
     ports:
       - "3001:80"
     networks:
