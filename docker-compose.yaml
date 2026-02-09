@@ -98,6 +98,14 @@ services:
     image: kegeossolutions/omnix-console:${OMNIX_TAG:-omnixstorage}
     pull_policy: always
     container_name: omnix-console
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.omnix-console.loadbalancer.server.port=80"
+      - "traefik.http.routers.omnix-console.rule=Host(`demo.omnixstorage.kegeosapps.com`)"
+      - "traefik.http.routers.omnix-console.entrypoints=https"
+      - "traefik.http.routers.omnix-console.tls=true"
+      - "traefik.http.routers.omnix-console.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.omnix-console.priority=1"
     environment:
       - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-https://demo.omnixstorage.kegeosapps.com}
     ports:
