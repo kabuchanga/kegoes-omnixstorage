@@ -47,6 +47,7 @@ services:
       - "traefik.http.routers.omnixstorage-api.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`) && (PathPrefix(`/health`) || PathPrefix(`/s3`) || PathPrefix(`/api`) || PathPrefix(`/bucket`))"
       - "traefik.http.routers.omnixstorage-api.entrypoints=https"
       - "traefik.http.routers.omnixstorage-api.tls=true"
+      - "traefik.http.routers.omnixstorage-api.tls.certresolver=letsencrypt"
       - "traefik.http.routers.omnixstorage-api.priority=10"
       # Redirect HTTP -> HTTPS
       - "traefik.http.routers.omnixstorage-api-http.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`) && (PathPrefix(`/health`) || PathPrefix(`/s3`) || PathPrefix(`/api`) || PathPrefix(`/bucket`))"
@@ -113,6 +114,7 @@ services:
       - "traefik.http.routers.omnixstorage-console.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`)"
       - "traefik.http.routers.omnixstorage-console.entrypoints=https"
       - "traefik.http.routers.omnixstorage-console.tls=true"
+      - "traefik.http.routers.omnixstorage-console.tls.certresolver=letsencrypt"
       - "traefik.http.routers.omnixstorage-console.priority=1"
       # Redirect HTTP -> HTTPS
       - "traefik.http.routers.omnixstorage-console-http.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`)"
