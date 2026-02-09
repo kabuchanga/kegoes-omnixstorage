@@ -1,4 +1,4 @@
-version: '3.8'  # Note: Coolify compatible. Version attribute is legacy in modern Docker but kept for tool compatibility.
+version: '3.8'
 
 services:
   etcd:
@@ -27,27 +27,17 @@ services:
       - omnix-network
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "etcdctl", "--endpoints=http://localhost:2379", "endpoint", "health"]
-      interval: 15s
-      timeout: 10s
-      retries: 5
-      start_period: 45s
+      test: ["CMD", "etcdctl", "endpoint", "health"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
 
   omnix-node1:
     image: kegeossolutions/omnixstorage:${OMNIX_TAG:-omnixstorage}
     pull_policy: always
     container_name: omnix-node1
     hostname: omnix-node1
-    labels:
-      # Traefik configuration for Coolify reverse proxy routing
-      - "traefik.enable=true"
-      # Service definition
-      - "traefik.http.services.omnixstorage-api.loadbalancer.server.port=5000"
-      # Router for port 9000 (public API endpoint)
-      - "traefik.http.routers.omnixstorage-api.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`) && PathPrefix(`/health`, `/s3`, `/api`, `/bucket`)"
-      - "traefik.http.routers.omnixstorage-api.entrypoints=websecure"
-      - "traefik.http.routers.omnixstorage-api.tls=true"
-      - "traefik.http.routers.omnixstorage-api.priority=10"
     environment:
       - NODE_NAME=node1
       - IS_SEED_NODE=true
@@ -80,56 +70,35 @@ services:
     restart: unless-stopped
     depends_on:
       etcd:
-        condition: service_started
+        condition: service_healthy
     deploy:
       resources:
         limits:
+          memory: 16G
+          cpus: '8'
+        reservations:
           memory: 8G
           cpus: '4'
-        reservations:
-          memory: 4G
-          cpus: '2'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 15s
-      timeout: 10s
-      retries: 5
-      start_period: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
 
   console:
     image: kegeossolutions/omnix-console:${OMNIX_TAG:-omnixstorage}
     pull_policy: always
     container_name: omnix-console
-    labels:
-      # Traefik configuration for Coolify reverse proxy routing
-      - "traefik.enable=true"
-      # Service definition
-      - "traefik.http.services.omnixstorage-console.loadbalancer.server.port=80"
-      # Router for console (port 3001, default route)
-      - "traefik.http.routers.omnixstorage-console.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`)"
-      - "traefik.http.routers.omnixstorage-console.entrypoints=websecure"
-      - "traefik.http.routers.omnixstorage-console.tls=true"
-      - "traefik.http.routers.omnixstorage-console.priority=1"
     environment:
-      # When behind Coolify's reverse proxy with SSL termination:
-      # - Coolify terminates HTTPS and forwards HTTP internally
-      # - Set VITE_API_URL to the public HTTPS domain (internally use http://omnix-node1:5000)
-      # - Coolify automatically manages Let's Encrypt SSL renewal
-      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-http://omnix-node1:5000}
+      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-http://localhost:9000}
     ports:
       - "3001:80"
     networks:
       - omnix-network
     restart: unless-stopped
     depends_on:
-      omnix-node1:
-        condition: service_healthy
-    healthcheck:
-      test: ["CMD-SHELL", "exit 0"]
-      interval: 15s
-      timeout: 5s
-      retries: 1
-      start_period: 5s
+      - omnix-node1
 
 networks:
   omnix-network:
