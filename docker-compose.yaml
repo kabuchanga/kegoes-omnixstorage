@@ -41,6 +41,7 @@ services:
     labels:
       # Traefik configuration for Coolify reverse proxy routing
       - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
       # Service definition
       - "traefik.http.services.omnixstorage-api.loadbalancer.server.port=5000"
       # Router for port 9000 (public API endpoint)
@@ -109,6 +110,7 @@ services:
     labels:
       # Traefik configuration for Coolify reverse proxy routing
       - "traefik.enable=true"
+      - "traefik.docker.network=coolify"
       # Service definition
       - "traefik.http.services.omnixstorage-console.loadbalancer.server.port=80"
       # Router for console (port 3001, default route)
