@@ -45,7 +45,7 @@ services:
       # Service definition
       - "traefik.http.services.omnixstorage-api.loadbalancer.server.port=5000"
       # Router for port 9000 (public API endpoint)
-      - "traefik.http.routers.omnixstorage-api.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`) && (PathPrefix(`/health`) || PathPrefix(`/s3`) || PathPrefix(`/api`) || PathPrefix(`/bucket`))"
+      - "traefik.http.routers.omnixstorage-api.rule=Host(`demo.omnixstorage.kegeosapps.com`) && (PathPrefix(`/health`) || PathPrefix(`/s3`) || PathPrefix(`/api`) || PathPrefix(`/bucket`))"
       - "traefik.http.routers.omnixstorage-api.entrypoints=http,https"
       - "traefik.http.routers.omnixstorage-api.tls=true"
       - "traefik.http.routers.omnixstorage-api.tls.certresolver=letsencrypt"
@@ -110,7 +110,7 @@ services:
       # Service definition
       - "traefik.http.services.omnixstorage-console.loadbalancer.server.port=80"
       # Router for console (port 3001, default route)
-      - "traefik.http.routers.omnixstorage-console.rule=Host(`${OMNIX_PUBLIC_DOMAIN:-localhost}`)"
+      - "traefik.http.routers.omnixstorage-console.rule=Host(`demo.omnixstorage.kegeosapps.com`)"
       - "traefik.http.routers.omnixstorage-console.entrypoints=http,https"
       - "traefik.http.routers.omnixstorage-console.tls=true"
       - "traefik.http.routers.omnixstorage-console.tls.certresolver=letsencrypt"
