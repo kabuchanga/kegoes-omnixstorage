@@ -94,13 +94,47 @@ services:
       - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-https://demo.omnixstorage.kegeosapps.com}
     ports:
       - "3001:80"
-    volumes:
-      - ./nginx-api-proxy.conf:/etc/nginx/conf.d/api-proxy.conf:ro
     networks:
       - omnix-network
     restart: unless-stopped
     depends_on:
       - omnix-node1
+    command: >
+      sh -c "cat > /etc/nginx/conf.d/api-proxy.conf <<'EOF'
+      location /api {
+          proxy_pass http://omnix-node1:5000;
+          proxy_http_version 1.1;
+          proxy_set_header Host \$$host;
+          proxy_set_header X-Real-IP \$$remote_addr;
+          proxy_set_header X-Forwarded-For \$$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto \$$scheme;
+      }
+      location /s3 {
+          proxy_pass http://omnix-node1:5000;
+          proxy_http_version 1.1;
+          proxy_set_header Host \$$host;
+          proxy_set_header X-Real-IP \$$remote_addr;
+          proxy_set_header X-Forwarded-For \$$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto \$$scheme;
+      }
+      location /bucket {
+          proxy_pass http://omnix-node1:5000;
+          proxy_http_version 1.1;
+          proxy_set_header Host \$$host;
+          proxy_set_header X-Real-IP \$$remote_addr;
+          proxy_set_header X-Forwarded-For \$$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto \$$scheme;
+      }
+      location /health {
+          proxy_pass http://omnix-node1:5000;
+          proxy_http_version 1.1;
+          proxy_set_header Host \$$host;
+          proxy_set_header X-Real-IP \$$remote_addr;
+          proxy_set_header X-Forwarded-For \$$proxy_add_x_forwarded_for;
+          proxy_set_header X-Forwarded-Proto \$$scheme;
+      }
+      EOF
+      && nginx -g 'daemon off;'"
     healthcheck:
       test: ["CMD-SHELL", "wget -q --spider http://127.0.0.1:80 || exit 1"]
       interval: 15s
