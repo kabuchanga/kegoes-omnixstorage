@@ -39,13 +39,9 @@ services:
     container_name: omnix-node1
     hostname: omnix-node1
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.services.omnixstorage-api.loadbalancer.server.port=5000"
-      - "traefik.http.routers.omnixstorage-api.rule=Host(`demo.omnixstorage.kegeosapps.com`) && PathPrefix(`/health`, `/s3`, `/api`, `/bucket`)"
-      - "traefik.http.routers.omnixstorage-api.entrypoints=https"
-      - "traefik.http.routers.omnixstorage-api.tls=true"
-      - "traefik.http.routers.omnixstorage-api.tls.certresolver=letsencrypt"
-      - "traefik.http.routers.omnixstorage-api.priority=10"
+      # Coolify reverse proxy configuration
+      - "coolify.enabled=true"
+      - "coolify.port=5000"
     environment:
       - NODE_NAME=node1
       - IS_SEED_NODE=true

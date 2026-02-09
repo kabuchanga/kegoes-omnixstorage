@@ -91,7 +91,7 @@ services:
     pull_policy: always
     container_name: omnix-console
     environment:
-      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-http://localhost:9000}
+      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-https://demo.omnixstorage.kegeosapps.com}
     ports:
       - "3001:80"
     networks:
