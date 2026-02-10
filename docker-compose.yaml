@@ -91,7 +91,7 @@ services:
     pull_policy: always
     container_name: omnix-console
     environment:
-      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-https://demo.omnixstorage.kegeosapps.com}
+      - VITE_API_URL=${OMNIX_CONSOLE_API_URL:-}
     ports:
       - "3001:80"
     networks:
@@ -111,7 +111,8 @@ services:
             index index.html;
             
             # API endpoints - proxy to backend
-            location /api {
+            location /api/ {
+                rewrite ^/api/(.*) /$1 break;
                 proxy_pass http://omnix-node1:5000;
                 proxy_http_version 1.1;
                 proxy_set_header Host $$host;
