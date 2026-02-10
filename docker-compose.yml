@@ -74,11 +74,11 @@ services:
     deploy:
       resources:
         limits:
-          memory: 16G
-          cpus: '8'
-        reservations:
           memory: 8G
           cpus: '4'
+        reservations:
+          memory: 4G
+          cpus: '2'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
       interval: 15s
