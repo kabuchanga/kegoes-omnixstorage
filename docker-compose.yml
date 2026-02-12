@@ -57,15 +57,14 @@ services:
       - ASPNETCORE_URLS=http://+:5000
       - Auth__DefaultUsername=${OMNIX_ADMIN_USER:-admin}
       - Auth__DefaultPassword=${OMNIX_ADMIN_PASSWORD:-omnix-console-2026}
-      - S3__RootAccessKey=${OMNIX_S3_ACCESS_KEY:-admin}
-      - S3__RootSecretKey=${OMNIX_S3_SECRET_KEY:-omnix-secret-2026}
-      - CORS__AllowedOrigins=http://localhost:9000      
-      - CORS__AllowedOrigins=http://37.60.228.216:3001
-      - CORS__AllowedOrigins=*
-      - CORS__AllowedMethods=*
-      - CORS__AllowedHeaders=*
-      - CORS__AllowCredentials=true
-      - CORS__MaxAge=86400
+      - S3__RootAccessKey=${OMNIX_S3_ACCESS_KEY:-AKIAOMNIXDEFAULT0001}
+      - S3__RootSecretKey=${OMNIX_S3_SECRET_KEY:-wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY}
+      # CORS configuration (comma-separated lists)
+      - CORS__AllowedOrigins=${OMNIX_CORS_ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:3001,http://37.60.228.216:9000,http://localhost:9000,http://37.60.228.216:3001,http://localhost:5173}
+      - CORS__AllowedMethods=${OMNIX_CORS_ALLOWED_METHODS:-*}
+      - CORS__AllowedHeaders=${OMNIX_CORS_ALLOWED_HEADERS:-*}
+      - CORS__AllowCredentials=${OMNIX_CORS_ALLOW_CREDENTIALS:-true}
+      - CORS__MaxAge=${OMNIX_CORS_MAX_AGE:-86400}
     ports:
       - "9000:5000"
       - "5001:5001"
