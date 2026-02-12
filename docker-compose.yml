@@ -55,11 +55,39 @@ services:
       - ASPNETCORE_Kestrel__Limits__MaxRequestBodySize=5368709120
       - ASPNETCORE_ENVIRONMENT=Production
       - ASPNETCORE_URLS=http://+:5000
+      
+      # Authentication
       - Auth__DefaultUsername=${OMNIX_ADMIN_USER:-admin}
       - Auth__DefaultPassword=${OMNIX_ADMIN_PASSWORD:-omnix-console-2026}
+      - Auth__AdminUsersFile=/data/keys/admin-users.json
+      - Auth__Jwt__Issuer=${OMNIX_JWT_ISSUER:-http://localhost:9000}
+      - Auth__Jwt__Audience=${OMNIX_JWT_AUDIENCE:-omnixstorage-api}
+      
+      # S3 API
       - S3__RootAccessKey=${OMNIX_S3_ACCESS_KEY:-AKIAOMNIXDEFAULT0001}
       - S3__RootSecretKey=${OMNIX_S3_SECRET_KEY:-wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY}
-      # CORS configuration (comma-separated lists)
+      - S3__Region=${OMNIX_S3_REGION:-us-east-1}
+      - S3__MaxClockSkewMinutes=${OMNIX_S3_MAX_CLOCK_SKEW:-15}
+      
+      # Tenant default quotas
+      - Tenant__DefaultRequestsPerMinute=${OMNIX_TENANT_DEFAULT_REQUESTS_PER_MIN:-10000}
+      - Tenant__DefaultBandwidthPerDay=${OMNIX_TENANT_DEFAULT_BANDWIDTH_PER_DAY:-1099511627776}
+      
+      # Storage
+      - Storage__DataPath=/data/chunks
+      - Storage__RsaKeyPath=/data/keys/omnix-rsa-key.bin
+      - RSA_KEY_PATH=/data/keys/omnix-rsa-key.bin
+      
+      # Network
+      - Network__ShardTransferTimeoutSeconds=${OMNIX_SHARD_TRANSFER_TIMEOUT:-3}
+      - Network__JwtClockSkewSeconds=${OMNIX_JWT_CLOCK_SKEW:-30}
+      
+      # Vector Search
+      - VectorSearch__MaxConnections=${OMNIX_VECTOR_MAX_CONNECTIONS:-16}
+      - VectorSearch__EfConstruction=${OMNIX_VECTOR_EF_CONSTRUCTION:-200}
+      - VectorSearch__EfSearch=${OMNIX_VECTOR_EF_SEARCH:-50}
+      
+      # CORS configuration
       - CORS__AllowedOrigins=${OMNIX_CORS_ALLOWED_ORIGINS:-http://localhost:3000,http://localhost:3001,http://37.60.228.216:9000,http://localhost:9000,http://37.60.228.216:3001,http://localhost:5173}
       - CORS__AllowedMethods=${OMNIX_CORS_ALLOWED_METHODS:-*}
       - CORS__AllowedHeaders=${OMNIX_CORS_ALLOWED_HEADERS:-*}
