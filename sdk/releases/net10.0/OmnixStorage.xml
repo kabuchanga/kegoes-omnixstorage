@@ -1,0 +1,1790 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>OmnixStorage</name>
+    </assembly>
+    <members>
+        <member name="T:OmnixStorage.Args.CreateTenantArgs">
+            <summary>
+            Arguments for creating a tenant.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.CreateTenantArgs.Name">
+            <summary>Unique tenant name.</summary>
+        </member>
+        <member name="P:OmnixStorage.Args.CreateTenantArgs.DisplayName">
+            <summary>Display name.</summary>
+        </member>
+        <member name="P:OmnixStorage.Args.CreateTenantArgs.StorageQuotaBytes">
+            <summary>Storage quota in bytes (0 = unlimited).</summary>
+        </member>
+        <member name="P:OmnixStorage.Args.CreateTenantArgs.MaxBuckets">
+            <summary>Maximum number of buckets (0 = unlimited).</summary>
+        </member>
+        <member name="M:OmnixStorage.Args.CreateTenantArgs.Validate">
+            <summary>Validate required fields.</summary>
+        </member>
+        <member name="T:OmnixStorage.Args.PutObjectArgs">
+            <summary>
+            Arguments for the PutObject operation using fluent builder pattern.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PutObjectArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PutObjectArgs.ObjectName">
+            <summary>
+            Gets the object name (key).
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PutObjectArgs.Data">
+            <summary>
+            Gets the stream data to upload.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PutObjectArgs.ObjectSize">
+            <summary>
+            Gets the size of the data in bytes.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PutObjectArgs.ContentType">
+            <summary>
+            Gets the content type.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PutObjectArgs.Metadata">
+            <summary>
+            Gets the custom metadata.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.WithObject(System.String)">
+            <summary>
+            Sets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.WithStreamData(System.IO.Stream,System.Int64)">
+            <summary>
+            Sets the stream data and size.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.WithStreamData(System.IO.Stream)">
+            <summary>
+            Sets the stream data (size is determined from the stream if possible).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.WithContentType(System.String)">
+            <summary>
+            Sets the content type.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.WithMetadata(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Adds metadata.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.WithMetadata(System.String,System.String)">
+            <summary>
+            Adds a single metadata entry.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PutObjectArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.GetObjectArgs">
+            <summary>
+            Arguments for the GetObject operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.GetObjectArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.GetObjectArgs.ObjectName">
+            <summary>
+            Gets the object name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.GetObjectArgs.OutputStream">
+            <summary>
+            Gets the output stream to write to.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.GetObjectArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.GetObjectArgs.WithObject(System.String)">
+            <summary>
+            Sets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.GetObjectArgs.WithOutputStream(System.IO.Stream)">
+            <summary>
+            Sets the output stream.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.GetObjectArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.MakeBucketArgs">
+            <summary>
+            Arguments for the MakeBucket operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.MakeBucketArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.MakeBucketArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.MakeBucketArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.RemoveBucketArgs">
+            <summary>
+            Arguments for the RemoveBucket operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.RemoveBucketArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.RemoveBucketArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.RemoveBucketArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.ListObjectsArgs">
+            <summary>
+            Arguments for the ListObjects operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.ListObjectsArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.ListObjectsArgs.Prefix">
+            <summary>
+            Gets the prefix filter.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.ListObjectsArgs.Delimiter">
+            <summary>
+            Gets the delimiter for grouping objects.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.ListObjectsArgs.MaxKeys">
+            <summary>
+            Gets the maximum number of objects to return.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.ListObjectsArgs.ContinuationToken">
+            <summary>
+            Gets the continuation token for pagination.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.ListObjectsArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.ListObjectsArgs.WithPrefix(System.String)">
+            <summary>
+            Sets the prefix filter.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.ListObjectsArgs.WithDelimiter(System.String)">
+            <summary>
+            Sets the delimiter.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.ListObjectsArgs.WithMaxKeys(System.Int32)">
+            <summary>
+            Sets the maximum number of keys.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.ListObjectsArgs.WithContinuationToken(System.String)">
+            <summary>
+            Sets the continuation token.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.ListObjectsArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.RemoveObjectArgs">
+            <summary>
+            Arguments for the RemoveObject operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.RemoveObjectArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.RemoveObjectArgs.ObjectName">
+            <summary>
+            Gets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.RemoveObjectArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.RemoveObjectArgs.WithObject(System.String)">
+            <summary>
+            Sets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.RemoveObjectArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.StatObjectArgs">
+            <summary>
+            Arguments for the StatObject operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.StatObjectArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.StatObjectArgs.ObjectName">
+            <summary>
+            Gets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.StatObjectArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.StatObjectArgs.WithObject(System.String)">
+            <summary>
+            Sets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.StatObjectArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.PresignedGetObjectArgs">
+            <summary>
+            Arguments for the PresignedGetObject operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PresignedGetObjectArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PresignedGetObjectArgs.ObjectName">
+            <summary>
+            Gets the object name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PresignedGetObjectArgs.ExpiresInSeconds">
+            <summary>
+            Gets the expiration time in seconds.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedGetObjectArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedGetObjectArgs.WithObject(System.String)">
+            <summary>
+            Sets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedGetObjectArgs.WithExpiresInSeconds(System.Int32)">
+            <summary>
+            Sets the expiration time in seconds (default: 3600).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedGetObjectArgs.WithExpiry(System.Int32)">
+            <summary>
+            Sets the expiration time in seconds (alias for WithExpiresInSeconds).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedGetObjectArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.Args.PresignedPutObjectArgs">
+            <summary>
+            Arguments for the PresignedPutObject operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PresignedPutObjectArgs.BucketName">
+            <summary>
+            Gets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PresignedPutObjectArgs.ObjectName">
+            <summary>
+            Gets the object name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.Args.PresignedPutObjectArgs.ExpiresInSeconds">
+            <summary>
+            Gets the expiration time in seconds.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedPutObjectArgs.WithBucket(System.String)">
+            <summary>
+            Sets the bucket name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedPutObjectArgs.WithObject(System.String)">
+            <summary>
+            Sets the object name.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedPutObjectArgs.WithExpiresInSeconds(System.Int32)">
+            <summary>
+            Sets the expiration time in seconds (default: 3600).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedPutObjectArgs.WithExpiry(System.Int32)">
+            <summary>
+            Sets the expiration time in seconds (alias for WithExpiresInSeconds).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.Args.PresignedPutObjectArgs.Validate">
+            <summary>
+            Validates the arguments.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.DataModel.Bucket">
+            <summary>
+            Represents a bucket in OmnixStorage.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Bucket.Name">
+            <summary>
+            Gets or sets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Bucket.CreationDate">
+            <summary>
+            Gets or sets the creation date.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.DataModel.ObjectMetadata">
+            <summary>
+            Represents an object (file) in OmnixStorage.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ObjectMetadata.Name">
+            <summary>
+            Gets or sets the object name (key).
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ObjectMetadata.BucketName">
+            <summary>
+            Gets or sets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ObjectMetadata.Size">
+            <summary>
+            Gets or sets the object size in bytes.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ObjectMetadata.ETag">
+            <summary>
+            Gets or sets the ETag (entity tag).
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ObjectMetadata.LastModified">
+            <summary>
+            Gets or sets the last modified date.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ObjectMetadata.ContentType">
+            <summary>
+            Gets or sets the content type.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ObjectMetadata.Metadata">
+            <summary>
+            Gets or sets custom metadata.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.DataModel.ListObjectsResult">
+            <summary>
+            Represents the result of a list objects operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ListObjectsResult.Objects">
+            <summary>
+            Gets or sets the list of objects.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ListObjectsResult.IsTruncated">
+            <summary>
+            Gets or sets a value indicating whether there are more results.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ListObjectsResult.ContinuationToken">
+            <summary>
+            Gets or sets the continuation token for pagination.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.ListObjectsResult.CommonPrefixes">
+            <summary>
+            Gets or sets the list of common prefixes (for directory-like browsing).
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.DataModel.PutObjectResult">
+            <summary>
+            Represents the result of a put object operation.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.PutObjectResult.BucketName">
+            <summary>
+            Gets or sets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.PutObjectResult.ObjectName">
+            <summary>
+            Gets or sets the object name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.PutObjectResult.ETag">
+            <summary>
+            Gets or sets the ETag of the uploaded object.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.PutObjectResult.VersionId">
+            <summary>
+            Gets or sets the version ID if versioning is enabled.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.DataModel.PresignedUrlResult">
+            <summary>
+            Represents a presigned URL response.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.PresignedUrlResult.Url">
+            <summary>
+            Gets or sets the presigned URL.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.PresignedUrlResult.ExpiresAt">
+            <summary>
+            Gets or sets the expiration time of the presigned URL.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.DataModel.BucketPolicyResult">
+            <summary>
+            Represents bucket policy information.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.BucketPolicyResult.BucketName">
+            <summary>
+            Gets or sets the bucket name.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.BucketPolicyResult.PolicyJson">
+            <summary>
+            Gets or sets the policy JSON.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.DataModel.Tenant">
+            <summary>
+            Represents a tenant in a multi-tenant OmnixStorage deployment.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.Id">
+            <summary>Tenant ID.</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.Name">
+            <summary>Tenant name (unique).</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.DisplayName">
+            <summary>Display name.</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.CreatedAt">
+            <summary>Created timestamp (UTC).</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.Status">
+            <summary>Tenant status.</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.StorageQuotaBytes">
+            <summary>Storage quota in bytes.</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.StorageUsedBytes">
+            <summary>Storage used in bytes.</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.MaxBuckets">
+            <summary>Maximum buckets allowed.</summary>
+        </member>
+        <member name="P:OmnixStorage.DataModel.Tenant.MaxObjectsPerBucket">
+            <summary>Maximum objects per bucket.</summary>
+        </member>
+        <member name="T:OmnixStorage.OmnixStorageException">
+            <summary>
+            Base exception for all OmnixStorage SDK errors.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.OmnixStorageException.StatusCode">
+            <summary>
+            Gets the HTTP status code if available.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.OmnixStorageException.ErrorCode">
+            <summary>
+            Gets the error code returned by the server.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OmnixStorage.OmnixStorageException"/> class.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageException.#ctor(System.String,System.Nullable{System.Int32},System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OmnixStorage.OmnixStorageException"/> class with status code and error code.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:OmnixStorage.OmnixStorageException"/> class with inner exception.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.BucketNotFoundException">
+            <summary>
+            Thrown when a bucket is not found.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.BucketNotFoundException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the BucketNotFoundException class.
+            </summary>
+            <param name="bucketName">The name of the bucket that was not found.</param>
+        </member>
+        <member name="T:OmnixStorage.BucketAlreadyExistsException">
+            <summary>
+            Thrown when trying to create a bucket that already exists.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.BucketAlreadyExistsException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the BucketAlreadyExistsException class.
+            </summary>
+            <param name="bucketName">The name of the bucket that already exists.</param>
+        </member>
+        <member name="T:OmnixStorage.ObjectNotFoundException">
+            <summary>
+            Thrown when an object is not found.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.ObjectNotFoundException.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the ObjectNotFoundException class.
+            </summary>
+            <param name="bucketName">The name of the bucket.</param>
+            <param name="objectName">The name of the object that was not found.</param>
+        </member>
+        <member name="T:OmnixStorage.InvalidObjectNameException">
+            <summary>
+            Thrown when an object name is invalid.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.InvalidObjectNameException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the InvalidObjectNameException class.
+            </summary>
+            <param name="objectName">The invalid object name.</param>
+        </member>
+        <member name="T:OmnixStorage.AuthenticationException">
+            <summary>
+            Thrown when authentication fails.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.AuthenticationException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the AuthenticationException class.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:OmnixStorage.AuthenticationException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the AuthenticationException class with an inner exception.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:OmnixStorage.ServerException">
+            <summary>
+            Thrown when the server returns an error.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.ServerException.#ctor(System.String,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the ServerException class.
+            </summary>
+            <param name="message">The error message.</param>
+            <param name="statusCode">The HTTP status code.</param>
+            <param name="errorCode">The server error code.</param>
+        </member>
+        <member name="T:OmnixStorage.AccessDeniedException">
+            <summary>
+            Thrown when access is denied.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.AccessDeniedException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the AccessDeniedException class.
+            </summary>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="T:OmnixStorage.IOmnixAdminClient">
+            <summary>
+            Interface for OmnixStorage admin/management operations.
+            Uses JWT token authentication for administrative tasks.
+            This interface is focused solely on admin API operations (tenant and system management).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixAdminClient.CreateTenantAsync(OmnixStorage.Args.CreateTenantArgs,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new tenant in the system.
+            This operation requires admin privileges.
+            </summary>
+            <param name="args">Tenant creation arguments (name, metadata, etc.).</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>Created tenant information.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixAdminClient.ListTenantsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Lists all tenants visible to the authenticated admin user.
+            This operation requires admin privileges.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>List of tenant information.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixAdminClient.DeleteTenantAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a tenant from the system.
+            The tenant must have no buckets or be explicitly emptied first.
+            This operation requires admin privileges.
+            </summary>
+            <param name="tenantId">ID of the tenant to delete.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+        </member>
+        <member name="M:OmnixStorage.IOmnixAdminClient.HealthAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks if the server is healthy and accessible.
+            This is a public operation that doesn't require authentication.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>True if server is responding, false otherwise.</returns>
+        </member>
+        <member name="T:OmnixStorage.IOmnixS3Client">
+            <summary>
+            Interface for S3-compatible object storage operations.
+            Uses AWS Signature V4 authentication for all operations.
+            This interface is focused solely on S3 API operations (bucket and object management).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.BucketExistsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Checks if a bucket exists.
+            </summary>
+            <param name="bucketName">Name of the bucket to check.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>True if bucket exists, false otherwise.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.MakeBucketAsync(OmnixStorage.Args.MakeBucketArgs,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new bucket.
+            </summary>
+            <param name="args">Bucket creation arguments.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.RemoveBucketAsync(OmnixStorage.Args.RemoveBucketArgs,System.Threading.CancellationToken)">
+            <summary>
+            Removes a bucket (must be empty).
+            </summary>
+            <param name="args">Bucket removal arguments.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.ListBucketsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Lists all buckets accessible with the current credentials.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>List of bucket information.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.PutObjectAsync(OmnixStorage.Args.PutObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Uploads an object (file) to the specified bucket.
+            </summary>
+            <param name="args">Object upload arguments.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>Upload result with object metadata.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.PutObjectStreamAsync(System.String,System.String,System.IO.Stream,System.Nullable{System.Int64},System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Streams an object upload using a single PUT request.
+            Note: Multipart upload orchestration is not available on the server yet.
+            </summary>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="objectName">Name of the object (key).</param>
+            <param name="data">Stream containing the object data.</param>
+            <param name="size">Optional content length in bytes (recommended).</param>
+            <param name="contentType">Optional content type.</param>
+            <param name="metadata">Optional user metadata.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>Upload result with object metadata.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.GetObjectAsync(OmnixStorage.Args.GetObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Downloads an object from the specified bucket.
+            </summary>
+            <param name="args">Object download arguments.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>Object metadata and content stream.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.StatObjectAsync(OmnixStorage.Args.StatObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Gets object metadata without downloading the object content.
+            </summary>
+            <param name="args">Arguments for getting object stats.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>Object metadata (size, modification time, etc.).</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.RemoveObjectAsync(OmnixStorage.Args.RemoveObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Removes an object from the bucket.
+            </summary>
+            <param name="args">Object removal arguments.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.ListObjectsAsync(OmnixStorage.Args.ListObjectsArgs,System.Threading.CancellationToken)">
+            <summary>
+            Lists objects in a bucket with optional prefix filtering.
+            </summary>
+            <param name="args">List arguments (bucket, prefix, max keys, etc.).</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>List of objects and common prefixes.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.PresignedGetObjectAsync(OmnixStorage.Args.PresignedGetObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned URL for downloading an object.
+            The URL can be used by unauthenticated clients for direct download.
+            </summary>
+            <param name="args">Arguments for presigned URL generation.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>Presigned URL with embedded AWS SigV4 signature.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.PresignedPutObjectAsync(OmnixStorage.Args.PresignedPutObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned URL for uploading an object.
+            The URL can be used by unauthenticated clients for direct upload.
+            </summary>
+            <param name="args">Arguments for presigned URL generation.</param>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>Presigned URL with embedded AWS SigV4 signature.</returns>
+        </member>
+        <member name="M:OmnixStorage.IOmnixS3Client.HealthAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks if the server is healthy and accessible.
+            </summary>
+            <param name="cancellationToken">Cancellation token for the operation.</param>
+            <returns>True if server is responding, false otherwise.</returns>
+        </member>
+        <member name="T:OmnixStorage.IOmnixStorageClient">
+            <summary>
+            Interface for OmnixStorage client operations.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.BucketExistsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Checks if a bucket exists.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.MakeBucketAsync(OmnixStorage.Args.MakeBucketArgs,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.RemoveBucketAsync(OmnixStorage.Args.RemoveBucketArgs,System.Threading.CancellationToken)">
+            <summary>
+            Removes a bucket (must be empty).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.ListBucketsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Lists all buckets.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.PutObjectAsync(OmnixStorage.Args.PutObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Uploads an object to the bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.PutObjectStreamAsync(System.String,System.String,System.IO.Stream,System.Nullable{System.Int64},System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Streams an object upload using a single PUT request.
+            Note: Multipart upload orchestration is not available on the server yet.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.GetObjectAsync(OmnixStorage.Args.GetObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Downloads an object from the bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.StatObjectAsync(OmnixStorage.Args.StatObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Gets object metadata without downloading the object.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.RemoveObjectAsync(OmnixStorage.Args.RemoveObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Removes an object from the bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.ListObjectsAsync(OmnixStorage.Args.ListObjectsArgs,System.Threading.CancellationToken)">
+            <summary>
+            Lists objects in a bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.PresignedGetObjectAsync(OmnixStorage.Args.PresignedGetObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned URL for downloading an object.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.PresignedPutObjectAsync(OmnixStorage.Args.PresignedPutObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned URL for uploading an object.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.CreateTenantAsync(OmnixStorage.Args.CreateTenantArgs,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new tenant.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.ListTenantsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Lists all tenants.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.DeleteTenantAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a tenant (must have no buckets).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.IOmnixStorageClient.HealthAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks if the server is healthy.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.SessionManager">
+            <summary>
+            Manages persistence of multipart upload sessions for resume capability.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.SessionManager.GetSessionDirectory">
+            <summary>
+            Get the directory where sessions are stored.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.SessionManager.GetSessionPath(System.String)">
+            <summary>
+            Get the path to a specific session file.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.SessionManager.SaveSessionAsync(OmnixStorage.MultipartUploadSession)">
+            <summary>
+            Save a session to disk.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.SessionManager.LoadSessionAsync(System.String)">
+            <summary>
+            Load a session from disk.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.SessionManager.LoadAllSessionsAsync">
+            <summary>
+            Load all saved sessions.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.SessionManager.DeleteSessionAsync(System.String)">
+            <summary>
+            Delete a session file.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.SessionManager.CleanupExpiredSessionsAsync">
+            <summary>
+            Clean up expired sessions. Returns count of sessions deleted.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.UploadPart">
+            <summary>
+            Represents a single part in a multipart upload.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.UploadPart.PartNumber">
+            <summary>Part number (1-10000).</summary>
+        </member>
+        <member name="P:OmnixStorage.UploadPart.Size">
+            <summary>Size of this part in bytes.</summary>
+        </member>
+        <member name="P:OmnixStorage.UploadPart.ETag">
+            <summary>ETag of the uploaded part.</summary>
+        </member>
+        <member name="P:OmnixStorage.UploadPart.MD5">
+            <summary>MD5 checksum of the part.</summary>
+        </member>
+        <member name="P:OmnixStorage.UploadPart.UploadedAt">
+            <summary>Timestamp when part was uploaded.</summary>
+        </member>
+        <member name="P:OmnixStorage.UploadPart.IsComplete">
+            <summary>Check if part has been successfully uploaded.</summary>
+        </member>
+        <member name="T:OmnixStorage.MultipartUploadSession">
+            <summary>
+            Represents an active multipart upload session.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.UploadId">
+            <summary>Unique upload ID from server.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.BucketName">
+            <summary>Target bucket name.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.ObjectKey">
+            <summary>Target object key.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.PartSize">
+            <summary>Size of each part in bytes.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.CreatedAt">
+            <summary>When this session was created.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.Metadata">
+            <summary>Custom metadata for final object.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.Parts">
+            <summary>List of uploaded parts.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.IsExpired">
+            <summary>Check if session has expired (> 24 hours).</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.CompletedPartCount">
+            <summary>Get number of completed parts.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadSession.TotalBytesUploaded">
+            <summary>Get total bytes uploaded so far.</summary>
+        </member>
+        <member name="T:OmnixStorage.MultipartUploadManager">
+            <summary>
+            Manages multipart uploads for large files.
+            Provides:
+            - Automatic chunking with configurable part size
+            - Retry logic with exponential backoff
+            - Progress tracking and callbacks
+            - Resume capability via upload ID
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadManager.Session">
+            <summary>Active upload session (if any).</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadManager.BytesUploaded">
+            <summary>Total bytes uploaded so far.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadManager.TotalBytes">
+            <summary>Total bytes to upload (if known).</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadManager.ProgressCallback">
+            <summary>Progress callback: (partNumber, uploadedBytes, totalBytes).</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadManager.IsActive">
+            <summary>Check if an upload is active.</summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.#ctor(OmnixStorage.IOmnixS3Client,System.String,System.String,System.Int64,System.Collections.Generic.Dictionary{System.String,System.String},System.Int32,System.Int32)">
+            <summary>
+            Initialize multipart upload manager.
+            </summary>
+            <param name="client">S3-compatible client</param>
+            <param name="bucketName">Target bucket</param>
+            <param name="objectKey">Target object key</param>
+            <param name="partSize">Part size (5MB-5GB, default 5MB)</param>
+            <param name="metadata">Custom metadata for final object</param>
+            <param name="maxRetries">Max retry attempts per operation</param>
+            <param name="retryDelayMs">Initial retry delay in milliseconds</param>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.ResumeFromUploadIdAsync(OmnixStorage.IOmnixS3Client,System.String)">
+            <summary>
+            Resume an existing multipart upload from upload ID.
+            </summary>
+            <param name="client">S3-compatible client</param>
+            <param name="uploadId">Upload ID from previous upload</param>
+            <returns>MultipartUploadManager with restored session</returns>
+            <exception cref="T:System.InvalidOperationException">If session not found or expired</exception>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.ListActiveUploadsAsync(System.String)">
+            <summary>
+            List all active in-progress uploads.
+            </summary>
+            <param name="bucketName">Optional filter by bucket name</param>
+            <returns>List of upload info dictionaries</returns>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.GetUploadStatus">
+            <summary>
+            Get detailed status of current upload.
+            </summary>
+            <returns>Dictionary with upload status details</returns>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.SaveCheckpointAsync">
+            <summary>
+            Save current upload state as checkpoint for resume.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.InitiateAsync(System.Threading.CancellationToken)">
+            <summary>
+            Initiate multipart upload session.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadPartAsync(System.Int32,System.Byte[],System.Threading.CancellationToken)">
+            <summary>
+            Upload a single part.
+            </summary>
+            <param name="partNumber">Part number (1-10000)</param>
+            <param name="data">Part data</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Uploaded part metadata</returns>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadPartAsync(System.Int32,System.IO.Stream,System.Int64,System.Threading.CancellationToken)">
+            <summary>
+            Upload a single part with stream.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadFileAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Upload file in parts.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadStreamAsync(System.IO.Stream,System.Nullable{System.Int64},System.Threading.CancellationToken)">
+            <summary>
+            Upload from stream.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadFileConcurrentAsync(System.String,System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Upload file in parts with concurrent workers for faster performance.
+            </summary>
+            <param name="filePath">Path to file to upload</param>
+            <param name="concurrentWorkers">Number of parallel workers (1-16, default 4)</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Composite ETag of merged object</returns>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadStreamConcurrentAsync(System.IO.Stream,System.Nullable{System.Int64},System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Upload stream in parts with concurrent workers.
+            </summary>
+            <param name="stream">Stream to upload</param>
+            <param name="totalSize">Total stream size (optional)</param>
+            <param name="concurrentWorkers">Number of parallel workers (1-16, default 4)</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>Composite ETag of merged object</returns>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadPartsConcurrentAsync(System.Collections.Generic.List{System.ValueTuple{System.Int32,System.Byte[]}},System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Upload multiple parts concurrently with worker pool.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.ConcurrentUploadWorkerAsync(System.Collections.Generic.Queue{System.ValueTuple{System.Int32,System.Byte[]}},System.Threading.CancellationToken)">
+            <summary>
+            Worker task that uploads parts from queue.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.CompleteAsync(System.Threading.CancellationToken)">
+            <summary>
+            Complete multipart upload by merging parts.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.AbortAsync(System.Threading.CancellationToken)">
+            <summary>
+            Abort multipart upload and cleanup.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.GetStatus">
+            <summary>
+            Get current upload status.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.DisposeAsync">
+            <summary>
+            Async dispose pattern.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.ComputeCompositeETag">
+            <summary>
+            Compute composite ETag per AWS S3 standard.
+            AWS uses: MD5(concatenated_part_md5s) + "-" + part_count
+            </summary>
+            <returns>Composite ETag string</returns>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.VerifyPartIntegrity(OmnixStorage.UploadPart)">
+            <summary>
+            Verify a part's integrity using stored MD5 hash.
+            </summary>
+            <param name="part">Part to verify</param>
+            <returns>True if MD5 matches ETag, false otherwise</returns>
+        </member>
+        <member name="M:OmnixStorage.MultipartUploadManager.UploadPartInternalAsync(System.Int32,System.Byte[],System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Async dispose pattern.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.MultipartUploadStatus">
+            <summary>
+            Status of a multipart upload.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.UploadId">
+            <summary>Upload ID.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.BucketName">
+            <summary>Bucket name.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.ObjectKey">
+            <summary>Object key.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.PartsUploaded">
+            <summary>Number of parts uploaded.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.BytesUploaded">
+            <summary>Bytes uploaded so far.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.TotalBytes">
+            <summary>Total bytes to upload.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.ProgressPercent">
+            <summary>Progress percentage (0-100).</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.CreatedAt">
+            <summary>When upload started.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.Elapsed">
+            <summary>Time elapsed since start.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.TimeRemaining">
+            <summary>Estimate time remaining.</summary>
+        </member>
+        <member name="P:OmnixStorage.MultipartUploadStatus.SpeedMbps">
+            <summary>Upload speed in MB/s.</summary>
+        </member>
+        <member name="T:OmnixStorage.OmnixAdminClient">
+            <summary>
+            Admin/management client for OmnixStorage.
+            Uses JWT token authentication for administrative operations.
+            This client is optimized for admin and tenant management operations.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixAdminClient.#ctor(System.String,System.String,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the OmnixAdminClient with JWT authentication.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixAdminClient.CreateTenantAsync(OmnixStorage.Args.CreateTenantArgs,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new tenant.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixAdminClient.ListTenantsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Lists all tenants.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixAdminClient.DeleteTenantAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Deletes a tenant.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixAdminClient.HealthAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks if the server is healthy.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.OmnixS3Client">
+            <summary>
+            S3-compatible client for OmnixStorage distributed object storage.
+            Uses AWS Signature V4 authentication for all S3 API operations.
+            This client is optimized for S3 bucket and object operations.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.#ctor(System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the OmnixS3Client with AWS SigV4 authentication.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.BucketExistsAsync(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Checks if a bucket exists using HEAD request.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.MakeBucketAsync(OmnixStorage.Args.MakeBucketArgs,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.RemoveBucketAsync(OmnixStorage.Args.RemoveBucketArgs,System.Threading.CancellationToken)">
+            <summary>
+            Removes a bucket (must be empty).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.ListBucketsAsync(System.Threading.CancellationToken)">
+            <summary>
+            Lists all buckets.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.PutObjectAsync(OmnixStorage.Args.PutObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Uploads an object to the bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.PutObjectStreamAsync(System.String,System.String,System.IO.Stream,System.Nullable{System.Int64},System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Streams an object upload using a single PUT request.
+            Note: Multipart upload orchestration is not available on the server yet.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.GetObjectAsync(OmnixStorage.Args.GetObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Downloads an object from the bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.StatObjectAsync(OmnixStorage.Args.StatObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Gets object metadata without downloading content.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.RemoveObjectAsync(OmnixStorage.Args.RemoveObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Removes an object from the bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.ListObjectsAsync(OmnixStorage.Args.ListObjectsArgs,System.Threading.CancellationToken)">
+            <summary>
+            Lists objects in a bucket.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.PresignedGetObjectAsync(OmnixStorage.Args.PresignedGetObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned GET URL for direct object download.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.PresignedPutObjectAsync(OmnixStorage.Args.PresignedPutObjectArgs,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned PUT URL for direct object upload.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.HealthAsync(System.Threading.CancellationToken)">
+            <summary>
+            Checks if the server is healthy.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixS3Client.ParseLastModified(System.Net.Http.HttpResponseMessage)">
+            <summary>
+            Encodes an object key for use in URLs, preserving forward slashes.
+            Spaces are encoded as %20, special characters as %xx.
+            </summary>
+            <summary>
+            Parses the Last-Modified header from response, with fallbacks to multiple header locations.
+            Returns DateTime.MinValue if header is not found or cannot be parsed.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.AuthMode">
+            <summary>
+            Authentication mode for OmnixStorage client.
+            </summary>
+        </member>
+        <member name="F:OmnixStorage.AuthMode.AwsSignatureV4">
+            <summary>
+            Use AWS Signature V4 for S3 API operations (recommended for S3 operations).
+            This is the industry-standard authentication method for S3-compatible APIs.
+            </summary>
+        </member>
+        <member name="F:OmnixStorage.AuthMode.JWT">
+            <summary>
+            Use JWT tokens for admin/management operations.
+            This requires the admin API endpoint and appropriate admin credentials.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.OmnixStorageClientBuilder">
+            <summary>
+            Builder for creating OmnixStorageClient instances with fluent configuration.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithEndpoint(System.String)">
+            <summary>
+            Sets the endpoint (server address:port).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithCredentials(System.String,System.String)">
+            <summary>
+            Sets the S3 API credentials (access key and secret key).
+            Use this for S3 API operations with AWS SigV4 authentication.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithAdminCredentials(System.String,System.String)">
+            <summary>
+            Sets the admin credentials (username and password).
+            Use this for admin API operations with JWT authentication.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithRegion(System.String)">
+            <summary>
+            Sets the AWS SigV4 region (default: us-east-1).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithSSL(System.Boolean)">
+            <summary>
+            Enables SSL/TLS (default: false).
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithRequestTimeout(System.TimeSpan)">
+            <summary>
+            Sets the request timeout.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithMaxRetries(System.Int32)">
+            <summary>
+            Sets the maximum number of retries for failed requests.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.WithAuthMode(OmnixStorage.AuthMode)">
+            <summary>
+            Sets the authentication mode.
+            Use AwsSignatureV4 for S3 API operations (default, recommended).
+            Use JWT for admin/management operations.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.BuildS3Client">
+            <summary>
+            Builds and returns an S3-compatible client using AWS Signature V4 authentication.
+            This is the recommended client for S3 API operations.
+            </summary>
+            <returns>IOmnixS3Client configured for S3 operations.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.BuildAdminClient">
+            <summary>
+            Builds and returns an admin client using JWT token authentication.
+            This client is for administrative and tenant management operations.
+            
+            Note: The credentials should be formatted as "username:password" for admin authentication.
+            </summary>
+            <returns>IOmnixAdminClient configured for admin operations.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientBuilder.Build">
+            <summary>
+            Builds and returns the OmnixStorageClient (legacy unified client).
+            For new code, use BuildS3Client() or BuildAdminClient() instead.
+            </summary>
+            <remarks>
+            This method is maintained for backward compatibility.
+            It returns a unified client that supports both S3 and admin operations,
+            but new code should use BuildS3Client() for clarity and separation of concerns.
+            </remarks>
+        </member>
+        <member name="T:OmnixStorage.OmnixStorageClient">
+            <summary>
+            S3-compatible client for OmnixStorage distributed object storage.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.Int32,System.Int32,OmnixStorage.AuthMode)">
+            <summary>
+            Initializes a new instance of the OmnixStorageClient.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.GetBaseUrl">
+            <summary>
+            Gets the base URL for API requests.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.GetAuthTokenAsync(System.Threading.CancellationToken)">
+            <summary>
+            Authenticates and gets a JWT token.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.MakeRequestAsync(System.Net.Http.HttpMethod,System.String,System.Net.Http.HttpContent,System.Threading.CancellationToken,System.Boolean)">
+            <summary>
+            Makes an HTTP request with authentication and policy-based retry logic.
+            Provides detailed error context in exceptions including method, URL, and status.
+            Uses the configured retry policy with exponential backoff for transient failures.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.BucketExistsAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.MakeBucketAsync(OmnixStorage.Args.MakeBucketArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.RemoveBucketAsync(OmnixStorage.Args.RemoveBucketArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.ListBucketsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.PutObjectAsync(OmnixStorage.Args.PutObjectArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.PutObjectStreamAsync(System.String,System.String,System.IO.Stream,System.Nullable{System.Int64},System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.GetObjectAsync(OmnixStorage.Args.GetObjectArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.StatObjectAsync(OmnixStorage.Args.StatObjectArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.RemoveObjectAsync(OmnixStorage.Args.RemoveObjectArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.ListObjectsAsync(OmnixStorage.Args.ListObjectsArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.PresignedGetObjectAsync(OmnixStorage.Args.PresignedGetObjectArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.PresignedPutObjectAsync(OmnixStorage.Args.PresignedPutObjectArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.CreateTenantAsync(OmnixStorage.Args.CreateTenantArgs,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.ListTenantsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.DeleteTenantAsync(System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.HealthAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.ApplyAwsSignatureV4(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Applies AWS Signature V4 authentication to an HTTP request.
+            This is the industry-standard authentication method for S3-compatible APIs.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.GeneratePresignedUrl(System.String,System.String,System.String,System.Int32)">
+            <summary>
+            Generates an AWS SigV4 presigned URL for direct object access.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.ComputeSha256Hash(System.String)">
+            <summary>
+            Computes SHA256 hash of a string.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.HmacSha256(System.String,System.String)">
+            <summary>
+            Computes HMAC-SHA256 hash.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.HmacSha256(System.Byte[],System.String)">
+            <summary>
+            Computes HMAC-SHA256 hash with byte key.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.ToHexString(System.Byte[])">
+            <summary>
+            Converts byte array to hex string.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClient.DisposeAsync">
+            <summary>
+            Disposes the HTTP client.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.OmnixStorageBuilderExtensions">
+            <summary>
+            Extension methods for builder providing convenient ways to create S3 or Admin clients.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageBuilderExtensions.BuildS3(OmnixStorage.OmnixStorageClientBuilder)">
+            <summary>
+            Builds an S3-compatible client using AWS Signature V4 authentication.
+            This is a convenience method equivalent to calling builder.WithAuthMode(AuthMode.AwsSignatureV4).BuildS3Client().
+            </summary>
+            <param name="builder">The OmnixStorageClientBuilder.</param>
+            <returns>Configured IOmnixS3Client for S3 operations.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageBuilderExtensions.BuildAdmin(OmnixStorage.OmnixStorageClientBuilder)">
+            <summary>
+            Builds an admin client using JWT token authentication.
+            This is a convenience method equivalent to calling builder.WithAuthMode(AuthMode.JWT).BuildAdminClient().
+            </summary>
+            <param name="builder">The OmnixStorageClientBuilder.</param>
+            <returns>Configured IOmnixAdminClient for admin operations.</returns>
+        </member>
+        <member name="T:OmnixStorage.OmnixStorageClientExtensions">
+            <summary>
+            Extension methods for IOmnixStorageClient providing simplified method signatures.
+            These methods wrap the Args-based API with more convenient overloads.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.MakeBucketAsync(OmnixStorage.IOmnixStorageClient,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Creates a new bucket.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket to create.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.RemoveBucketAsync(OmnixStorage.IOmnixStorageClient,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Removes a bucket (must be empty).
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket to remove.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.PutObjectAsync(OmnixStorage.IOmnixStorageClient,System.String,System.String,System.IO.Stream,System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Threading.CancellationToken)">
+            <summary>
+            Uploads an object to the bucket.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="objectName">Name of the object (key).</param>
+            <param name="data">Stream containing the object data.</param>
+            <param name="contentType">Content type (optional, defaults to application/octet-stream).</param>
+            <param name="metadata">Custom metadata (optional).</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Result containing ETag and other upload information.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.GetObjectAsync(OmnixStorage.IOmnixStorageClient,System.String,System.String,System.IO.Stream,System.Threading.CancellationToken)">
+            <summary>
+            Downloads an object from the bucket.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="objectName">Name of the object.</param>
+            <param name="output">Stream to write the object data to.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Object metadata.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.StatObjectAsync(OmnixStorage.IOmnixStorageClient,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Gets object metadata without downloading the object.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="objectName">Name of the object.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Object metadata.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.RemoveObjectAsync(OmnixStorage.IOmnixStorageClient,System.String,System.String,System.Threading.CancellationToken)">
+            <summary>
+            Removes an object from the bucket.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="objectName">Name of the object to remove.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.ListObjectsAsync(OmnixStorage.IOmnixStorageClient,System.String,System.String,System.Nullable{System.Int32},System.String,System.Threading.CancellationToken)">
+            <summary>
+            Lists objects in a bucket.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="prefix">Filter objects by prefix (optional).</param>
+            <param name="maxKeys">Maximum number of objects to return (optional).</param>
+            <param name="continuationToken">Token for pagination (optional).</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>List result containing objects and pagination information.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.PresignedGetObjectAsync(OmnixStorage.IOmnixStorageClient,System.String,System.String,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned URL for downloading an object.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="objectName">Name of the object.</param>
+            <param name="expiresIn">How long the URL should be valid.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Presigned URL result.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.PresignedPutObjectAsync(OmnixStorage.IOmnixStorageClient,System.String,System.String,System.TimeSpan,System.Threading.CancellationToken)">
+            <summary>
+            Generates a presigned URL for uploading an object.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="bucketName">Name of the bucket.</param>
+            <param name="objectName">Name of the object.</param>
+            <param name="expiresIn">How long the URL should be valid.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>Presigned URL result.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.HealthCheckAsync(OmnixStorage.IOmnixStorageClient,System.Threading.CancellationToken)">
+            <summary>
+            Checks if the server is healthy.
+            </summary>
+            <param name="client">The OmnixStorage client.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>True if server is healthy, false otherwise.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.ForS3Operations(OmnixStorage.OmnixStorageClientBuilder)">
+            <summary>
+            Configures the client for S3 API operations using AWS Signature V4 authentication.
+            This is the recommended configuration for standard S3 operations.
+            </summary>
+            <param name="builder">The OmnixStorage client builder.</param>
+            <returns>The builder for fluent chaining.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.ForAdminOperations(OmnixStorage.OmnixStorageClientBuilder)">
+            <summary>
+            Configures the client for admin/management operations using JWT authentication.
+            Use this when you need to access tenant management and admin APIs.
+            </summary>
+            <param name="builder">The OmnixStorage client builder.</param>
+            <returns>The builder for fluent chaining.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.CreateMultipartUpload(OmnixStorage.IOmnixS3Client,System.String,System.String,System.Int64,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Create a multipart upload manager for large file uploads.
+            </summary>
+            <param name="client">The S3-compatible client.</param>
+            <param name="bucketName">Target bucket name.</param>
+            <param name="objectKey">Target object key.</param>
+            <param name="partSize">Size of each part (5MB-5GB, default 5MB).</param>
+            <param name="metadata">Custom metadata for final object.</param>
+            <returns>Configured MultipartUploadManager.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.PutObjectMultipartAsync(OmnixStorage.IOmnixS3Client,System.String,System.String,System.String,System.Int64,System.Func{System.Int32,System.Int64,System.Int64,System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            Upload a large file using multipart upload with automatic chunking.
+            </summary>
+            <param name="client">The S3-compatible client.</param>
+            <param name="bucketName">Target bucket name.</param>
+            <param name="objectKey">Target object key.</param>
+            <param name="filePath">Path to file to upload.</param>
+            <param name="partSize">Size of each part (5MB-5GB, default 5MB).</param>
+            <param name="progressCallback">Optional callback for progress updates.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>ETag of uploaded object.</returns>
+        </member>
+        <member name="M:OmnixStorage.OmnixStorageClientExtensions.PutObjectMultipartAsync(OmnixStorage.IOmnixS3Client,System.String,System.String,System.IO.Stream,System.Nullable{System.Int64},System.Int64,System.Func{System.Int32,System.Int64,System.Int64,System.Threading.Tasks.Task},System.Threading.CancellationToken)">
+            <summary>
+            Upload from stream using multipart upload with automatic chunking.
+            </summary>
+            <param name="client">The S3-compatible client.</param>
+            <param name="bucketName">Target bucket name.</param>
+            <param name="objectKey">Target object key.</param>
+            <param name="stream">Stream to upload.</param>
+            <param name="totalSize">Total size of stream (optional, for progress).</param>
+            <param name="partSize">Size of each part (5MB-5GB, default 5MB).</param>
+            <param name="progressCallback">Optional callback for progress updates.</param>
+            <param name="cancellationToken">Cancellation token.</param>
+            <returns>ETag of uploaded object.</returns>
+        </member>
+        <member name="T:OmnixStorage.RetryPolicy">
+            <summary>
+            Retry policy configuration for transient failures.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.RetryPolicy.MaxRetries">
+            <summary>
+            Maximum number of retry attempts.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.RetryPolicy.InitialDelayMs">
+            <summary>
+            Initial backoff delay in milliseconds.
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.RetryPolicy.MaxDelayMs">
+            <summary>
+            Maximum backoff delay in milliseconds (default: 10 seconds).
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.RetryPolicy.BackoffMultiplier">
+            <summary>
+            Backoff multiplier for exponential backoff (default: 2).
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.RetryPolicy.RetryableStatusCodes">
+            <summary>
+            HTTP status codes that should trigger a retry.
+            Default: 503 (Service Unavailable), 429 (Too Many Requests), 408 (Request Timeout).
+            </summary>
+        </member>
+        <member name="P:OmnixStorage.RetryPolicy.RetryableExceptionTypes">
+            <summary>
+            Exception types that should trigger a retry.
+            Default: HttpRequestException, TimeoutException, OperationCanceledException is NOT retried.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.RetryPolicy.CalculateDelayMs(System.Int32)">
+            <summary>
+            Calculate the delay for the given retry attempt number (0-based).
+            Uses exponential backoff: min(initial_delay * multiplier^attempt, max_delay)
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.RetryPolicy.IsRetryable(System.Int32)">
+            <summary>
+            Determine if the given HTTP status code is retryable.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.RetryPolicy.IsRetryable(System.Exception)">
+            <summary>
+            Determine if the given exception type is retryable.
+            </summary>
+        </member>
+        <member name="T:OmnixStorage.RetryPolicyHandler">
+            <summary>
+            Policy-based retry strategy with exponential backoff.
+            </summary>
+        </member>
+        <member name="M:OmnixStorage.RetryPolicyHandler.#ctor(OmnixStorage.RetryPolicy)">
+            <summary>
+            Initialize a retry policy handler.
+            </summary>
+            <param name="policy">Optional policy override; defaults to a new RetryPolicy.</param>
+        </member>
+        <member name="M:OmnixStorage.RetryPolicyHandler.ExecuteAsync``1(System.Func{System.Int32,System.Threading.Tasks.Task{``0}},System.Func{System.Net.Http.HttpResponseMessage,System.Boolean},System.Threading.CancellationToken)">
+            <summary>
+            Execute an async operation with retry logic.
+            </summary>
+        </member>
+    </members>
+</doc>
