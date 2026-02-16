@@ -64,8 +64,8 @@ services:
       - Auth__Jwt__Audience=${OMNIX_JWT_AUDIENCE:-omnixstorage-api}
       
       # S3 API
-      - S3__RootAccessKey=${OMNIX_S3_ACCESS_KEY:-AKIAOMNIXDEFAULT0001}
-      - S3__RootSecretKey=${OMNIX_S3_SECRET_KEY:-wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY}
+      - S3__RootAccessKey=${OMNIX_S3_ACCESS_KEY:-AKIATESAFEKEY0000001}
+      - S3__RootSecretKey=${OMNIX_S3_SECRET_KEY:-wJalrXUtnFEMIaKkMDENGbPxRfIcxAmPlEkEyZaB}
       - S3__Region=${OMNIX_S3_REGION:-us-east-1}
       - S3__MaxClockSkewMinutes=${OMNIX_S3_MAX_CLOCK_SKEW:-15}
       
